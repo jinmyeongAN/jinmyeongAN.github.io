@@ -15,7 +15,7 @@ module.exports = {
     bio: {
       role: `개발자`,
       description: ['이로운 것을 만드는', '나의 일을 사랑하는', '함께 나아가고 싶은'],
-      thumbnail: '/JM.gif', // Path to the image in the 'asset' folder
+      thumbnail: 'JM.gif', // Path to the image in the 'asset' folder
     },
     social: {
       github: `https://github.com/jinmyeongAN`, // `https://github.com/zoomKoding`,
@@ -108,15 +108,39 @@ module.exports = {
       // ========================================================
       // ========================================================
       {
-        title: '개발 블로그 테마 개발',
+        title: 'Generator of humanPreference-aligned question-Answer pairs (GPA) model',
         description:
-          '개발 블로그를 운영하는 기간이 조금씩 늘어나고 점점 많은 생각과 경험이 블로그에 쌓아가면서 제 이야기를 담고 있는 블로그를 직접 만들어보고 싶게 되었습니다. 그동안 여러 개발 블로그를 보면서 좋았던 부분과 불편했던 부분들을 바탕으로 레퍼런스를 참고하여 직접 블로그 테마를 만들게 되었습니다.',
-        techStack: ['gatsby', 'react'],
+          '대학교 시험문제(.pdf)를 입력하면 학생들이 이해하기 쉬운 풀이와 답을 알려주는 서비스',
+        techStack: ['PyTorch', 'Python'],
         thumbnailUrl: 'blog.png',
         links: {
-          post: '/gatsby-starter-zoomkoding-introduction',
-          github: 'https://github.com/zoomkoding/zoomkoding-gatsby-blog',
-          demo: 'https://www.zoomkoding.com',
+          post: '',
+          github: 'https://github.com/jinmyeongAN/GPA',
+          demo: '',
+        },
+      },
+      {
+        title: 'Food Image Recognition using CLIP',
+        description:
+          'CLIP를 이용한 zero-shot 음식 분리기',
+        techStack: ['PyTorch', 'Python'],
+        thumbnailUrl: 'blog.png',
+        links: {
+          post: '',
+          github: 'https://github.com/boostcampaitech4lv23nlp2/final-project-level3-nlp-09',
+          demo: '',
+        },
+      },
+      {
+        title: 'papagoKoRTT',
+        description:
+          'papago를 이용한 한국어 Round-Trip-Translation',
+        techStack: ['PyTorch', 'Python'],
+        thumbnailUrl: 'blog.png',
+        links: {
+          post: '',
+          github: 'https://github.com/jinmyeongAN/papagoKoRTT',
+          demo: '',
         },
       },
     ],
