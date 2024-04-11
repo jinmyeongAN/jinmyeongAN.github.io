@@ -43,12 +43,48 @@ module.exports = {
       // ========================================================
       // ========================================================
       {
-        date: '2021.02 ~',
-        activity: '개인 블로그 개발 및 운영',
+        date: '2016.03 ~ 2022.08',
+        activity: '울산과학기술원 (UNIST)',
         links: {
-          post: '/gatsby-starter-zoomkoding-introduction',
-          github: 'https://github.com/zoomkoding/zoomkoding-gatsby-blog',
-          demo: 'https://www.zoomkoding.com',
+          post: '',
+          github: '',
+          demo: '',
+        },
+      },
+      {
+        date: '2019.01 ~ 2019.05',
+        activity: 'UNIVERSITY OF CALIFORNIA, BERKELEY (EXCHANGE STUDENT, STARTUP SEMESTER)',
+        links: {
+          post: 'https://drive.google.com/file/d/1mypwKRe9x-rFOvPRm-AZzoK8hECOPFYq/view?usp=sharing',
+          github: '',
+          demo: '',
+        },
+      },
+      {
+        date: '2021.08 ~ 2022.02',
+        activity: 'NAVER INTERN(Front-End) - 네이버 플레이스검색서비스개발 팀',
+        links: {
+          post: '',
+          github: '',
+          demo: '',
+        },
+      },
+      {
+        date: '2022.09 ~ 2023.02',
+        activity: 'NAVER BoostCamp AI Tech - NLP 과정',
+        links: {
+          post: 'https://earthcodinglab.github.io/landing-page/',
+          github: 'https://github.com/boostcampaitech4lv23nlp2/final-project-level3-nlp-09',
+          demo: 'https://github.com/boostcampaitech4lv23nlp2/final-project-level3-nlp-09',
+        },
+      },
+      {
+        date: '2023.02 ~ ',
+        activity: 'POSTECH NLP lab',
+        links: {
+          post: 'https://nlp.postech.ac.kr/',
+          github: '',
+          demo: '',
         },
       },
     ],
