@@ -1,5 +1,5 @@
 module.exports = {
-  title: `https://jinmyeongan.github.io/`,
+  title: `jinmyeongan.github.io/`,
   description: `Jimmy의 개발여행`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
   siteUrl: `https://jinmyeongan.github.io/`,
