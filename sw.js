@@ -40,7 +40,7 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "c660154ad57da1c084c502f65fed7747"
+    "revision": "f115ad24ffa49490b0fb49a07b44579a"
   },
   {
     "url": "static/webfonts/s/roboto/v32/KFOlCnqEu92Fr1MmSU5fBBc4.woff2"
