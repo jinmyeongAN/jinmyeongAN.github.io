@@ -13,7 +13,7 @@
 module.exports = {
   // ---------------------------------------------------------------- site meta
   title: `JinMyeong An`,
-  description: `JinMyeong An is an AI engineer at Samsung Electronics (MX), working on agent planning for Bixby, with research in NLP, dialogue, and trustworthy language models.`,
+  description: `JinMyeong An is an AI engineer at Samsung Electronics (MX) working on agent planning for Bixby, with research on reliable evaluation and memory for long-lived language agents.`,
   language: `en`,
   siteUrl: `https://jinmyeongan.github.io/`,
   ogImage: `/og-image.png`,
@@ -42,11 +42,9 @@ module.exports = {
     bio: [
       `I am an AI engineer in the Language AI Core R&amp;D group at Samsung Electronics, Mobile eXperience (MX), where I work on Bixby, the assistant that ships across Samsung's Galaxy devices. I received my M.S. in artificial intelligence from POSTECH, where I worked in the <a href="https://nlp.postech.ac.kr/" target="_blank" rel="noreferrer">NLP Lab</a> under <a href="https://scholar.google.com/citations?user=6dIhxxIAAAAJ" target="_blank" rel="noreferrer">Gary Geunbae Lee</a> and <a href="https://sites.google.com/view/jungseulok" target="_blank" rel="noreferrer">Jungseul Ok</a>. Before that I studied physics at UNIST.`,
 
-      `<a href="https://news.samsung.com/global/interview-bixby-will-be-your-go-to-starting-point-for-every-samsung-device-meet-jisun-park-head-of-language-ai" target="_blank" rel="noreferrer">Bixby 4.0</a> was rebuilt around an LLM that plans over callable agents instead of matching commands, so a request becomes a sequence of tool calls composed across the device and, through SmartThings, across other devices. I work on that planning layer &mdash; turning an open-ended utterance into a plan the system can carry out reliably and legibly &mdash; and on evaluating and improving those plans so failures surface before users meet them. Working on a deployed multi-agent system is what convinced me that planning quality is an evaluation problem as much as a modeling one.`,
+      `One question runs through my work: <strong>how do we trust a language agent that acts over many turns &mdash; and catch it, at the right moment, when it goes wrong?</strong> My M.S. research treated this as a timing problem: a turn-level reinforcement learning formulation of online risk detection that learns when a system knows enough to intervene (NAACL 2025, oral). At Samsung I work on the same question from the deployment side: <a href="https://news.samsung.com/global/interview-bixby-will-be-your-go-to-starting-point-for-every-samsung-device-meet-jisun-park-head-of-language-ai" target="_blank" rel="noreferrer">Bixby 4.0</a> plans over callable agents &mdash; a request becomes a sequence of tool calls composed across devices &mdash; and I build and evaluate that planning layer so failures surface before users meet them.`,
 
-      `My research asks how conversational systems can be made dependable: recognizing harm while a conversation is still unfolding rather than after the fact, explaining the judgments they make, and staying robust to noisy input. My M.S. thesis reframed early detection of online grooming as a turn-level reinforcement learning problem, trading off how fast a system flags risk against how often it is right.`,
-
-      `I am increasingly interested in what reasoning and multi-agent interaction change about that picture &mdash; when intermediate reasoning actually earns its cost, and how agents that talk to each other can be evaluated for safety rather than only for task success.`,
+      `Shipping a multi-agent assistant convinced me that the bottleneck for long-lived agents is not capability but reliability: memory and context that must be verified and repaired rather than merely accumulated, and evaluation that measures how agents actually fail in deployment. That is the problem my current research pursues.`,
     ],
 
     social: {
@@ -62,16 +60,16 @@ module.exports = {
   // -------------------------------------------------------- research interests
   interests: [
     {
-      title: `Safety in conversational AI`,
-      description: `Detecting risk at the turn level so a system can intervene at the right moment, and measuring the speed/accuracy trade-off that intervention implies.`,
+      title: `Reliable evaluation of language agents`,
+      description: `Measuring planning and tool use the way deployment stresses them — benchmarks and metrics that surface how agents actually fail, before users do.`,
     },
     {
-      title: `Speech and multimodal language processing`,
-      description: `Explainable hate speech detection over audio, and correcting ASR errors on named entities without amplifying retrieval noise.`,
+      title: `Memory and context for long-lived agents`,
+      description: `An agent that persists accumulates stale and conflicting state. I study how agent memory should be verified and repaired, not merely stored and retrieved.`,
     },
     {
-      title: `Reasoning, planning, and multi-agent LLMs`,
-      description: `When intermediate reasoning genuinely helps, and how to evaluate agents that plan, call tools, and coordinate through language.`,
+      title: `Deciding when to act`,
+      description: `Turn-level optimization of the moment a system commits — trading how early it acts against how often it is right, from risk detection to agent planning.`,
     },
   ],
 
