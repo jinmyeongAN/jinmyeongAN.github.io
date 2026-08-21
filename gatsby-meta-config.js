@@ -42,7 +42,7 @@ module.exports = {
     bio: [
       `I am an AI engineer in the Language AI Core R&amp;D group at Samsung Electronics, Mobile eXperience (MX), where I work on Bixby, the assistant that ships across Samsung's Galaxy devices. I received my M.S. in artificial intelligence from POSTECH, where I worked in the <a href="https://nlp.postech.ac.kr/" target="_blank" rel="noreferrer">NLP Lab</a> under <a href="https://scholar.google.com/citations?user=6dIhxxIAAAAJ" target="_blank" rel="noreferrer">Gary Geunbae Lee</a> and <a href="https://sites.google.com/view/jungseulok" target="_blank" rel="noreferrer">Jungseul Ok</a>. Before that I studied physics at UNIST.`,
 
-      `<a href="https://news.samsung.com/global/interview-bixby-will-be-your-go-to-starting-point-for-every-samsung-device-meet-jisun-park-head-of-language-ai" target="_blank" rel="noreferrer">Bixby 4.0</a> was rebuilt around an LLM planner, making it an agentic system rather than a command matcher. I work on that planning layer &mdash; turning an open-ended utterance into a plan the system can carry out reliably and legibly &mdash; and on evaluating and improving those plans so failures surface before users meet them. Working on a deployed assistant is what convinced me that planning quality is an evaluation problem as much as a modeling one.`,
+      `<a href="https://news.samsung.com/global/interview-bixby-will-be-your-go-to-starting-point-for-every-samsung-device-meet-jisun-park-head-of-language-ai" target="_blank" rel="noreferrer">Bixby 4.0</a> was rebuilt around an LLM that plans over callable agents instead of matching commands, so a request becomes a sequence of tool calls composed across the device and, through SmartThings, across other devices. I work on that planning layer &mdash; turning an open-ended utterance into a plan the system can carry out reliably and legibly &mdash; and on evaluating and improving those plans so failures surface before users meet them. Working on a deployed multi-agent system is what convinced me that planning quality is an evaluation problem as much as a modeling one.`,
 
       `My research asks how conversational systems can be made dependable: recognizing harm while a conversation is still unfolding rather than after the fact, explaining the judgments they make, and staying robust to noisy input. My M.S. thesis reframed early detection of online grooming as a turn-level reinforcement learning problem, trading off how fast a system flags risk against how often it is right.`,
 
@@ -71,7 +71,7 @@ module.exports = {
     },
     {
       title: `Reasoning, planning, and multi-agent LLMs`,
-      description: `When intermediate reasoning genuinely helps, and how to evaluate agents that plan and coordinate through language.`,
+      description: `When intermediate reasoning genuinely helps, and how to evaluate agents that plan, call tools, and coordinate through language.`,
     },
   ],
 
@@ -206,7 +206,7 @@ module.exports = {
       period: `2025.03 – Present`,
       title: `AI Engineer`,
       organization: `Samsung Electronics, Mobile eXperience (MX)`,
-      detail: `Language AI Core R&D, Language AI Team. Agent planning for Bixby, and evaluation of planning quality in production.`,
+      detail: `Language AI Core R&D, Language AI Team. Planning and tool use in Bixby's multi-agent architecture, and evaluation of planning quality in production.`,
       url: ``,
     },
     {
