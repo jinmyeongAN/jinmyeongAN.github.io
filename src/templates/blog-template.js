@@ -12,14 +12,15 @@ function BlogTemplate({ data }) {
   const curPost = new Post(data.cur);
   const prevPost = data.prev && new Post(data.prev);
   const nextPost = data.next && new Post(data.next);
-  const { comments } = data.site?.siteMetadata;
-  const utterancesRepo = comments?.utterances?.repo;
+  const utterancesRepo = data.site?.siteMetadata?.comments?.utterances?.repo;
 
   return (
     <Layout>
-      <Seo title={curPost?.title} description={curPost?.excerpt} />
-      <PostHeader post={curPost} />
-      <PostContent html={curPost.html} />
+      <Seo title={curPost.title} description={curPost.excerpt} />
+      <article>
+        <PostHeader post={curPost} />
+        <PostContent html={curPost.html} />
+      </article>
       <PostNavigator prevPost={prevPost} nextPost={nextPost} />
       {utterancesRepo && <Utterances repo={utterancesRepo} path={curPost.slug} />}
     </Layout>
@@ -29,17 +30,15 @@ function BlogTemplate({ data }) {
 export default BlogTemplate;
 
 export const pageQuery = graphql`
-  query($slug: String, $nextSlug: String, $prevSlug: String) {
+  query ($slug: String, $nextSlug: String, $prevSlug: String) {
     cur: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
-      excerpt(pruneLength: 500, truncate: true)
+      excerpt(pruneLength: 300, truncate: true)
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         categories
-        author
-        emoji
       }
       fields {
         slug
@@ -48,13 +47,10 @@ export const pageQuery = graphql`
 
     next: markdownRemark(fields: { slug: { eq: $nextSlug } }) {
       id
-      html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         categories
-        author
-        emoji
       }
       fields {
         slug
@@ -63,13 +59,10 @@ export const pageQuery = graphql`
 
     prev: markdownRemark(fields: { slug: { eq: $prevSlug } }) {
       id
-      html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         categories
-        author
-        emoji
       }
       fields {
         slug

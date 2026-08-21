@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+
+.news-list {
+  .news-item {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    column-gap: $space-lg;
+    padding: $space-sm 0;
+
+    dt {
+      font-family: $font-family;
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--secondary-text-color);
+      white-space: nowrap;
+    }
+
+    dd {
+      font-size: 0.98rem;
+    }
+  }
+
+  .text-button {
+    margin-top: $space-md;
+  }
+}
+
+@media (max-width: #{$screen-sm-min}) {
+  .news-list .news-item {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+  }
+}

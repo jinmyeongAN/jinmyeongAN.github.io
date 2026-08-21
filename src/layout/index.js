@@ -1,39 +1,15 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import PageHeader from '../components/page-header';
+import metaConfig from '../../gatsby-meta-config';
+import SiteNav from '../components/site-nav';
 import PageFooter from '../components/page-footer';
-import ThemeSwitch from '../components/theme-switch';
 import './style.scss';
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          author {
-            name
-            social {
-              github
-            }
-          }
-        }
-      }
-    }
-  `);
-  const { title, author } = data.site.siteMetadata;
-
-  return (
-    <div className="page-wrapper">
-      <PageHeader siteTitle={title || `Title`} />
-      <main className="page-content">{children}</main>
-      <PageFooter
-        author={author.name || `Author`}
-        githubUrl={author.social?.github || `https://www.github.com`}
-      />
-      <ThemeSwitch />
-    </div>
-  );
-};
+const Layout = ({ children }) => (
+  <div className="page-wrapper">
+    <SiteNav siteTitle={metaConfig.author.name} cvUrl={metaConfig.author.social.cv} />
+    <main className="page-content">{children}</main>
+    <PageFooter author={metaConfig.author.name} githubUrl={metaConfig.author.social.github} />
+  </div>
+);
 
 export default Layout;

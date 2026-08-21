@@ -1,0 +1,120 @@
+@use '../../styles/variables' as *;
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 190px;
+  grid-template-areas:
+    'intro photo'
+    'bio   bio';
+  column-gap: $space-xl;
+  row-gap: $space-lg;
+  align-items: start;
+
+  .profile-intro {
+    grid-area: intro;
+  }
+
+  .profile-photo-wrapper {
+    grid-area: photo;
+  }
+
+  .profile-bio {
+    grid-area: bio;
+  }
+
+  .name {
+    font-family: $font-family-serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--primary-text-color);
+  }
+
+  .name-local {
+    margin-left: $space-sm;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--secondary-text-color);
+  }
+
+  .position {
+    margin-top: $space-sm;
+    font-size: 1.02rem;
+    color: var(--content-text-color);
+  }
+
+  .previously {
+    margin-top: $space-xs;
+    font-family: $font-family;
+    font-size: 0.86rem;
+    color: var(--secondary-text-color);
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-sm $space-md;
+    margin-top: $space-md;
+    font-family: $font-family;
+    font-size: 0.86rem;
+
+    li + li::before {
+      content: '·';
+      margin-right: $space-md;
+      color: var(--faint-text-color);
+    }
+  }
+
+  .profile-photo {
+    display: block;
+    width: 190px;
+    height: 190px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+  }
+
+  .profile-photo.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--surface-color);
+    border: 1px dashed var(--strong-border-color);
+    font-family: $font-family;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--faint-text-color);
+
+    code {
+      font-family: $font-family-mono;
+      font-size: 0.72rem;
+    }
+  }
+
+  .profile-bio p {
+    margin-top: $space-md;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: #{$screen-md-min}) {
+  .profile {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'photo'
+      'intro'
+      'bio';
+
+    .profile-photo,
+    .profile-photo.placeholder {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

@@ -1,1 +1,1 @@
-require('typeface-montserrat');
+require('prismjs/themes/prism-tomorrow.css');

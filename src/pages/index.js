@@ -1,74 +1,65 @@
-import React, { useCallback, useState } from 'react';
-import { graphql } from 'gatsby';
+import React from 'react';
+import { Link } from 'gatsby';
+import metaConfig from '../../gatsby-meta-config';
 import Layout from '../layout';
 import Seo from '../components/seo';
-import Bio from '../components/bio';
-import Post from '../models/post';
+import Profile from '../components/profile';
+import Section from '../components/section';
+import InterestList from '../components/interest-list';
+import NewsList from '../components/news-list';
+import PublicationList from '../components/publication-list';
+import CvList from '../components/cv-list';
 
-import { getUniqueCategories } from '../utils/helpers';
-import PostTabs from '../components/post-tabs';
-
-function HomePage({ data }) {
-  const posts = data.allMarkdownRemark.edges.map(({ node }) => new Post(node));
-  const { author, language } = data.site.siteMetadata;
-  const categories = ['All', ...getUniqueCategories(posts)];
-  const featuredTabIndex = categories.findIndex((category) => category === 'featured');
-  const [tabIndex, setTabIndex] = useState(featuredTabIndex === -1 ? 0 : featuredTabIndex);
-  const onTabIndexChange = useCallback((e, value) => setTabIndex(value), []);
+function HomePage() {
+  const { author, interests, news, publications, education, experience, awards, service } =
+    metaConfig;
+  const selected = publications.filter((publication) => publication.selected);
 
   return (
     <Layout>
       <Seo title="Home" />
-      <Bio author={author} language={language} />
-      <PostTabs
-        posts={posts}
-        onChange={onTabIndexChange}
-        tabs={categories}
-        tabIndex={tabIndex}
-        showMoreButton
-      />
+      <Profile author={author} />
+
+      <Section title="Research interests">
+        <InterestList interests={interests} />
+      </Section>
+
+      <Section title="News">
+        <NewsList news={news} />
+      </Section>
+
+      <Section
+        title="Selected publications"
+        action={
+          <Link className="section-title-action" to="/publications/">
+            All publications →
+          </Link>
+        }
+      >
+        <PublicationList publications={selected} />
+      </Section>
+
+      <Section title="Education">
+        <CvList entries={education} />
+      </Section>
+
+      <Section title="Experience">
+        <CvList entries={experience} />
+      </Section>
+
+      {awards.length > 0 && (
+        <Section title="Awards">
+          <CvList entries={awards} />
+        </Section>
+      )}
+
+      {service.length > 0 && (
+        <Section title="Service">
+          <CvList entries={service} />
+        </Section>
+      )}
     </Layout>
   );
 }
 
 export default HomePage;
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 500, truncate: true)
-          frontmatter {
-            categories
-            title
-            date(formatString: "MMMM DD, YYYY")
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-
-    site {
-      siteMetadata {
-        language
-        author {
-          name
-          bio {
-            role
-            description
-            thumbnail
-          }
-          social {
-            github
-            linkedIn
-            email
-          }
-        }
-      }
-    }
-  }
-`;

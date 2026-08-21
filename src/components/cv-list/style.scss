@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+
+.cv-list {
+  .cv-item {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    column-gap: $space-lg;
+    padding: $space-sm 0 $space-md;
+  }
+
+  .cv-period {
+    font-family: $font-family;
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--faint-text-color);
+    white-space: nowrap;
+  }
+
+  .cv-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+  }
+
+  .cv-organization {
+    font-size: 0.95rem;
+    color: var(--content-text-color);
+  }
+
+  .cv-detail {
+    font-family: $font-family;
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+  }
+}
+
+@media (max-width: #{$screen-sm-min}) {
+  .cv-list .cv-item {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+  }
+}

@@ -1,0 +1,51 @@
+@use '../../styles/variables' as *;
+
+.post-list {
+  .post-list-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    column-gap: $space-lg;
+    padding: $space-lg 0;
+    border-top: 1px solid var(--rule-color);
+
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  .post-date {
+    font-family: $font-family;
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--faint-text-color);
+  }
+
+  .post-title {
+    font-family: $font-family-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.4;
+
+    a {
+      color: var(--primary-text-color);
+    }
+  }
+
+  .post-excerpt {
+    margin-top: $space-xs;
+    font-size: 0.95rem;
+    color: var(--secondary-text-color);
+  }
+}
+
+.post-list-empty {
+  color: var(--secondary-text-color);
+}
+
+@media (max-width: #{$screen-sm-min}) {
+  .post-list .post-list-item {
+    grid-template-columns: 1fr;
+    row-gap: $space-xs;
+  }
+}

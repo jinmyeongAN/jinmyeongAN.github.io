@@ -1,10 +1,27 @@
-$font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-  Apple Color Emoji, Segoe UI Emoji;
+// ---------------------------------------------------------------- typography
+// A single serif family for headings and prose gives the page an academic
+// register; the sans stack is reserved for metadata (dates, venues, links).
+$font-family-serif: 'Charter', 'Bitstream Charter', 'Iowan Old Style', 'Source Serif Pro', Georgia,
+  'Times New Roman', serif;
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji';
+$font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
-$content-max-width: 720px;
-$content-horizontal-padding: 15px;
+// -------------------------------------------------------------------- layout
+$content-max-width: 760px;
+$content-horizontal-padding: 24px;
 $content-image-max-height: 560px;
 
+// spacing scale
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 28px;
+$space-xl: 48px;
+$space-2xl: 72px;
+
+// ---------------------------------------------------------------- breakpoints
 $screen-sm-min: 576px;
 $screen-md-min: 768px;
 $screen-lg-min: 1080px;
+$screen-xl-min: 1440px;

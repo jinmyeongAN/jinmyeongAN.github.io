@@ -3,7 +3,17 @@ const { NODE_ENV, CONTEXT: NETLIFY_ENV = NODE_ENV } = process.env;
 const metaConfig = require('./gatsby-meta-config');
 
 module.exports = {
-  siteMetadata: metaConfig,
+  // Only the fields Gatsby's GraphQL layer needs live here. Page content is
+  // imported directly from `gatsby-meta-config.js` by the components.
+  siteMetadata: {
+    title: metaConfig.title,
+    description: metaConfig.description,
+    language: metaConfig.language,
+    siteUrl: metaConfig.siteUrl,
+    ogImage: metaConfig.ogImage,
+    author: { name: metaConfig.author.name },
+    comments: metaConfig.comments,
+  },
 
   plugins: [
     {
@@ -120,12 +130,13 @@ module.exports = {
         ],
       },
     },
-    `gatsby-theme-material-ui`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-offline`,
+    // The site used to ship a service worker; this unregisters it so returning
+    // visitors are not served a stale cached copy of the old blog.
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
   ],

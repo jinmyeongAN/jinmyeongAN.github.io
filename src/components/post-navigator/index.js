@@ -3,25 +3,27 @@ import React from 'react';
 import './style.scss';
 
 function PostNavigator({ prevPost, nextPost }) {
+  if (!prevPost && !nextPost) return null;
+
   return (
-    <div className="post-navigator">
-      <div className="post-navigator-card-wrapper">
+    <nav className="post-navigator">
+      <div className="nav-slot">
         {nextPost && (
-          <Link className="post-card prev" key={nextPost.id} to={nextPost.slug}>
-            <div className="direction">이전 글</div>
-            <div className="title">{nextPost.title}</div>
+          <Link to={nextPost.slug}>
+            <span className="direction">← Previous</span>
+            <span className="title">{nextPost.title}</span>
           </Link>
         )}
       </div>
-      <div className="post-navigator-card-wrapper">
+      <div className="nav-slot align-end">
         {prevPost && (
-          <Link className="post-card next" key={prevPost.id} to={prevPost.slug}>
-            <div className="direction">다음 글</div>
-            <div className="title">{prevPost.title}</div>
+          <Link to={prevPost.slug}>
+            <span className="direction">Next →</span>
+            <span className="title">{prevPost.title}</span>
           </Link>
         )}
       </div>
-    </div>
+    </nav>
   );
 }
 

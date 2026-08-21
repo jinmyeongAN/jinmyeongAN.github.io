@@ -1,0 +1,154 @@
+@use '../../styles/variables' as *;
+
+.publication-list {
+  .publication-item {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    column-gap: $space-lg;
+    padding: $space-lg 0;
+    border-top: 1px solid var(--rule-color);
+
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    &.no-year {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .pub-year {
+    font-family: $font-family;
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--faint-text-color);
+  }
+
+  .pub-venue {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-family;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+
+    .venue-name {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-color);
+    }
+
+    .venue-note {
+      padding: 1px 6px;
+      border-radius: 3px;
+      background-color: var(--tag-background-color);
+      color: var(--tag-text-color);
+      text-transform: uppercase;
+    }
+  }
+
+  .pub-title {
+    margin-top: $space-xs;
+    font-family: $font-family-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--primary-text-color);
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .authors {
+    margin-top: $space-xs;
+    font-size: 0.94rem;
+    color: var(--secondary-text-color);
+
+    strong {
+      font-weight: 700;
+      color: var(--primary-text-color);
+    }
+  }
+
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: $space-sm $space-md;
+    margin-top: $space-sm;
+    font-family: $font-family;
+    font-size: 0.82rem;
+  }
+
+  .pub-link {
+    color: var(--secondary-text-color);
+
+    &:hover {
+      color: var(--primary-text-color);
+    }
+  }
+
+  .pub-detail {
+    summary {
+      cursor: pointer;
+      list-style: none;
+      color: var(--secondary-text-color);
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: ' +';
+      }
+
+      &:hover {
+        color: var(--primary-text-color);
+      }
+    }
+
+    &[open] {
+      width: 100%;
+
+      summary::after {
+        content: ' −';
+      }
+    }
+
+    p {
+      margin-top: $space-sm;
+      font-family: $font-family-serif;
+      font-size: 0.94rem;
+      color: var(--content-text-color);
+    }
+
+    pre {
+      margin-top: $space-sm;
+      padding: $space-md;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background-color: var(--code-background-color);
+      font-family: $font-family-mono;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      white-space: pre;
+      color: var(--content-text-color);
+    }
+  }
+}
+
+@media (max-width: #{$screen-sm-min}) {
+  .publication-list {
+    .publication-item {
+      grid-template-columns: 1fr;
+    }
+
+    .pub-year {
+      display: none;
+    }
+  }
+}

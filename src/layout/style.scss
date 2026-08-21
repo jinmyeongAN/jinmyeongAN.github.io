@@ -1,47 +1,140 @@
-@use '../styles/variables'as *;
-@use '../styles/mixins'as *;
-@use '../styles/reset'as *;
-@use '../styles/colors'as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/reset' as *;
+@use '../styles/colors' as *;
 
 * {
-    box-sizing: border-box;
-    appearance: none;
+  box-sizing: border-box;
 }
 
 html {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    font-size: 14px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    background-color: var(--background-color) !important;
+  background-color: var(--background-color);
 }
 
-
 a {
-    color: var(--link-text-color);
+  color: var(--link-text-color);
+
+  &:hover {
+    color: var(--accent-hover-color);
+    text-decoration: underline;
+  }
+}
+
+::selection {
+  background: var(--tag-background-color);
 }
 
 .page-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    word-break: keep-all;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: $font-family;
-    color: var(--primary-text-color);
-    @include content-horizontal-padding;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $font-family-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--content-text-color);
+  @include content-horizontal-padding;
 
-    .page-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        @include content-max-width;
+  .page-content {
+    flex: 1;
+    display: block;
+    padding: $space-xl 0 $space-2xl;
+    @include content-max-width;
+    margin: 0 auto;
+  }
+}
+
+// ---------------------------------------------------------- shared primitives
+
+.section {
+  margin-top: $space-xl + $space-sm;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// The intro block already ends in a rule, so the first section sits right under it.
+.page-intro + .section {
+  margin-top: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $space-md;
+  margin-bottom: $space-lg;
+  padding-bottom: $space-sm;
+  border-bottom: 1px solid var(--rule-color);
+
+  h2 {
+    font-family: $font-family;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+  }
+
+  .section-title-action {
+    font-family: $font-family;
+    font-size: 0.82rem;
+    color: var(--secondary-text-color);
+
+    &:hover {
+      color: var(--primary-text-color);
     }
+  }
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: $font-family;
+  font-size: 0.85rem;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-text-color);
+    text-decoration: underline;
+  }
+}
+
+.page-intro {
+  margin-bottom: $space-xl;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid var(--rule-color);
+
+  h1 {
+    font-family: $font-family-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    color: var(--primary-text-color);
+  }
+
+  p {
+    margin-top: $space-sm;
+    font-size: 0.98rem;
+    color: var(--secondary-text-color);
+  }
+}
+
+.utterances {
+  margin-top: $space-xl;
 }

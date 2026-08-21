@@ -1,21 +1,17 @@
 {
   "name": "jinmyeongAN.github.io",
   "private": false,
-  "description": "A neat blog theme for developers",
+  "description": "Personal academic homepage of JinMyeong An",
   "version": "3.0.0",
-  "author": "jinmyeong <jinmyeong@gmail.com>",
+  "author": "JinMyeong An <jinmyeong.an@gmail.com>",
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^5.1.0",
-    "@mui/material": "^5.1.0",
     "gatsby": "^4.12.1",
     "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-google-analytics": "^4.25.0",
     "gatsby-plugin-image": "^2.12.1",
     "gatsby-plugin-manifest": "^4.9.1",
-    "gatsby-plugin-offline": "^5.9.1",
     "gatsby-plugin-react-helmet": "^5.9.0",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-robots-txt": "1.7.0",
     "gatsby-plugin-sass": "^5.9.0",
     "gatsby-plugin-sharp": "^4.12.1",
@@ -27,25 +23,22 @@
     "gatsby-remark-smartypants": "^5.9.0",
     "gatsby-remark-table-of-contents": "^2.0.0",
     "gatsby-source-filesystem": "^4.9.1",
-    "gatsby-theme-material-ui": "^5.1.0",
     "gatsby-transformer-remark": "^5.9.1",
     "gatsby-transformer-sharp": "^4.12.1",
     "prismjs": "^1.24.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-rotating-text": "^1.4.1",
-    "sass": "^1.43.4",
-    "typeface-montserrat": "^1.1.13"
+    "sass": "^1.43.4"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
     "prettier": "2.2.1"
   },
   "keywords": [
-    "gatsby",
-    "gatsby-plugin",
-    "gatsby-theme"
+    "academic",
+    "homepage",
+    "gatsby"
   ],
   "license": "0BSD",
   "scripts": {

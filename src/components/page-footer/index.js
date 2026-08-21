@@ -4,15 +4,14 @@ import './style.scss';
 function PageFooter({ author, githubUrl }) {
   return (
     <footer className="page-footer-wrapper">
-      <p className="page-footer">
-        © {new Date().getFullYear()}
-        &nbsp;
-        <a href={githubUrl}>{author}</a>
-        &nbsp;powered by
-        <a href="https://github.com/jinmyeongAN/jinmyeongAN.github.io">
-          &nbsp;jinmyeongAN.github.io
+      <div className="page-footer">
+        <span>
+          © {new Date().getFullYear()} {author}
+        </span>
+        <a href={githubUrl} target="_blank" rel="noreferrer">
+          Source
         </a>
-      </p>
+      </div>
     </footer>
   );
 }

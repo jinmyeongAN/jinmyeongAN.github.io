@@ -1,17 +1,14 @@
 export default class Post {
   constructor(node) {
     const { id, html, excerpt, frontmatter, fields } = node;
-    const { slug } = fields;
-    const { emoji, categories, title, author, date } = frontmatter;
+    const { title, date, categories } = frontmatter;
 
     this.id = id;
-    this.excerpt = excerpt;
-    this.emoji = emoji;
     this.html = html;
-    this.slug = slug;
+    this.excerpt = excerpt;
+    this.slug = fields.slug;
     this.title = title;
-    this.author = author;
     this.date = date;
-    this.categories = categories.split(' ');
+    this.categories = categories ? categories.split(' ').filter(Boolean) : [];
   }
 }
